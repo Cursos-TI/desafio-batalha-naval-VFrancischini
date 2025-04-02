@@ -14,10 +14,44 @@ int main() {
         {21, 22, 23, 24, 25}
     };
     // Posição dos navios.
-    int navio1[] = {0, 0};
-    int navio2[] = {4, 4};
-    // Exibição das coordenadas de cada navio.
-    printf("O primeiro navio se encontra na coordenada: %d:%d\nO Segundo navio: %d:%d\n", navio1[0], navio1[1], navio2[0], navio2[1]);
+    int navio1[3] = {1, 2, 3};
+    int navio2[3] = {15, 20, 25};
+    // Exibição do tabuleiro com os navios posicionados.
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            int posicao = tabuleiro[i][j];
+            int navio = 0;
+            // Verifica a posição do navio1
+            for (int k = 0; k < 3; k++)
+            {
+                if (navio1[k] == posicao)
+                {
+                    navio = 1; // Uma parte do navio encontrada
+                    break; // Quebra quando uma parte do navio é encontrada
+                }
+                
+            }
+
+            if (!navio) // Verifica quando não encontrada nada no navio1
+            {
+                for (int k = 0; k < 3; k++)// Verifica a posição do navio2
+                {
+                    if (navio2[k] == posicao)
+                    {
+                        navio = 1;
+                        break;
+                    }
+                    
+                }
+                
+            }
+            printf("%d ", navio ? 3 : 0); // Printa 3 quando encontra uma parte do navio1 ou navio2 e 0 para quando não encontra.
+        }
+        printf("\n");// Espaçamento entre as linhas
+    }
+    
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
