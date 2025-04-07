@@ -5,7 +5,7 @@
 // Constantes do Tabuleiro
 #define TABULEIRO_LINHAS 10
 #define TABULEIRO_COLUNAS 10
-// Constantes dos Navios
+// Constante dos Navios
 #define TAMANHO_NAVIO 3
 
 int main() {
@@ -34,21 +34,20 @@ int main() {
             // guarda o índice do tabuleiro
             int posicao = tabuleiro[i][j];
             // Variavel auxiliar quando é encontrado parte do navil
+            // Reinicializada para 0 a cada nova posição do tabuleiro
             int navio = 0;
             // Array auxiliar para verificar as posições dos navios
             // Array de ponteiros para inteiros
             int *navios[] = {navio1, navio2, navio3, navio4};
-            // Loops aninhados para acessar o array dos navios
-            for (int k = 0; k < 4; k++)
+
+            for (int k = 0; k < 4; k++)// Loop sobre os navios
             {
-                for (int n = 0; n < TAMANHO_NAVIO; n++)
+                for (int n = 0; n < TAMANHO_NAVIO; n++)// Loop sobre as posições de um navio
                 {
-                    // Verifica se navios[0][0] é igual a tabuleiro[0][0]
-                    // navios[0][0] = navio1[0]
-                    if (navios[k][n] == posicao)
+                    if (navios[k][n] == posicao) // Verifica se parte do navio esta na posição atual (i)(j)
                     {
                         navio = 1;
-                        break;
+                        break; // Interrompe o loop interno (n)
                     }
                     
                 }
